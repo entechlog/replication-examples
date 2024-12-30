@@ -1,0 +1,17 @@
+source: MSQL
+target: LOCAL
+
+defaults:
+  mode: incremental
+  object: 'data/test_data/{stream_table}/{YYYY}/{MM}/{DD}/{stream_table}_{run_timestamp}.csv'
+
+streams:
+  testdb.test_table:
+    primary_key: id
+    update_key: last_updated
+
+#sling conns set MSQL url='mysql://sling:slingpassword@mysql/testdb'
+# sling conns test MSQL
+#sling conns set S3 url='s3://minio/minio123@minio:9000/sling-bucket'
+#sling conns set S3 type=s3 bucket=sling-bucket access_key_id=minio secret_access_key="minio123"
+#sling conns set MINIO type=s3 bucket=sling-bucket access_key_id=znJPFczwJYQBkdVaOJhf secret_access_key="X4XV4BpkMuGWkuDMzX7y3aVnOOYk0O9Q93g4Vrd3" endpoint=localhost:9000
